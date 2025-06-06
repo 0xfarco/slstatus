@@ -73,7 +73,7 @@ static const struct arg args[] = {
         { cpu_perc,     "  C : %s  ::",   NULL },
         { ram_perc,     "  R : %s  ::",   NULL },
         { run_command,  "  L : %s  ::",   "xbacklight -get" },
-        { run_command,  "  V : %s  ::",   "pulsemixer --get-volume | awk '{print $1}'" },
+        { run_command,  "  V : %s  ::",   "sh -c \"[ \\\"$(pulsemixer --get-mute)\\\" -eq 1 ] && echo m || pulsemixer --get-volume | awk '{print \\$1}'\"" },
         { datetime,     "  %s ",          "%b %d (%a) %I:%M %p" },
 };
 
