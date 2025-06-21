@@ -66,14 +66,16 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
         /* function     format            argument */
+        { run_command,  " %s ",           "sh -c '[ -f /tmp/recordingpid ] && echo \"[   REC ]\" || echo \"\"'" },
         { run_command,  " %s  ::",        "bat" },
         { temp,         "  T : [%s -",    "/sys/class/thermal/thermal_zone0/temp" },
         { temp,         " %s -",          "/sys/class/thermal/thermal_zone1/temp" },
         { temp,         " %s]  ::",       "/sys/class/thermal/thermal_zone2/temp" },
+        { uptime,       "  U : %s  ::",   NULL },
         { cpu_perc,     "  C : %s  ::",   NULL },
         { ram_perc,     "  R : %s  ::",   NULL },
         { run_command,  "  L : %s  ::",   "xbacklight -get" },
-        { run_command,  "  V : %s  ::",   "sh -c \"[ \\\"$(pulsemixer --get-mute)\\\" -eq 1 ] && echo m || pulsemixer --get-volume | awk '{print \\$1}'\"" },
+        { run_command,  "  V : %s  ::",   "sh -c \"[ \\\"$(pulsemixer --get-mute)\\\" -eq 1 ] && echo M || pulsemixer --get-volume | awk '{print \\$1}'\"" },
+        { run_command,  "  W : %s  ::",   "sh -c \"nmcli -t -f DEVICE,TYPE,STATE,CONNECTION dev | awk -F: '\\$2==\\\"wifi\\\"{if(\\$3==\\\"connected\\\"){print \\$4}else{print \\\"N\\\"; exit}}'\"" },
         { datetime,     "  %s ",          "%b %d (%a) %I:%M %p" },
 };
-
