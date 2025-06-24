@@ -67,7 +67,7 @@ static const char unknown_str[] = "";
  */
 static const struct arg args[] = {
         /* function     format            argument */
-        { run_command, " %s", "sh -c \"[ -f /tmp/recordingpid ] && echo '[   REC ]' || printf ' '\"" },
+        { run_command,  " %s ",           "cat /tmp/recordingicon 2>/dev/null || echo ' '" },
         { run_command,  " %s  ::",        "bat" },
         { temp,         "  T : [%s -",    "/sys/class/thermal/thermal_zone0/temp" },
         { temp,         " %s -",          "/sys/class/thermal/thermal_zone1/temp" },
