@@ -68,7 +68,7 @@ static const char unknown_str[] = "";
 static const struct arg args[] = {
         /* function     format            argument */
         { run_command,  " %s ",           "cat /tmp/recordingicon 2>/dev/null || echo ' '" },
-        { run_command,  " [ V : %s ] ",   "cat /tmp/protonvpn-status 2>/dev/null || echo 'D'" },
+        { run_command,  " [ V : %s ] ",   "cat /tmp/vpnconnecticon 2>/dev/null || echo 'D'" },
         { run_command,  " %s  ::",        "bat" },
         { temp,         "  T : [%s -",    "/sys/class/thermal/thermal_zone0/temp" },
         { temp,         " %s -",          "/sys/class/thermal/thermal_zone1/temp" },
